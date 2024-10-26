@@ -10,7 +10,7 @@
   <p>Welcome to my LeetCode solutions repository! This project is a collection of solutions to LeetCode problems that I've solved to improve my problem-solving skills, data structures, and algorithms knowledge.</p>
 
   <h2 id="about">About</h2>
-  <p>This repository contains solutions to a variety of coding problems available on <a href="https://leetcode.com/">LeetCode</a>. Each solution aims to be efficient and easy to understand, often written in <strong>C#, Java, or JavaScript</strong> to match different coding scenarios and practices.</p>
+  <p>This repository contains solutions to a variety of coding problems available on <a href="https://leetcode.com/">LeetCode</a>. Each solution aims to be efficient and easy to understand, written in <strong>C#</strong> to match different coding scenarios and practices.</p>
 
   <h2 id="contact">Contact</h2>
   <p>Feel free to reach out for questions or discussions! You can find me on:</p>
