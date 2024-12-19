@@ -7,19 +7,16 @@
 // @lc code=start
 public class Solution {
     public int MaxProfit(int[] prices) {
-        int result = 0;
-        int buy = int.MaxValue;
-
+        int minBuy = Int32.MaxValue, maxProfit = 0;
+        
         for(int i = 0; i < prices.Length; i++) {
-            if(buy > prices[i]) {
-                buy = prices[i];
-            }
-            else if(prices[i] - buy > result) {
-                 result = prices[i] - buy;
-            }
+            if(prices[i] < minBuy) 
+                minBuy = prices[i];
+            else if (prices[i] - minBuy > maxProfit)
+                maxProfit = prices[i] - minBuy;
         }
 
-        return result;  
+        return maxProfit;
     }
 }
 // @lc code=end
