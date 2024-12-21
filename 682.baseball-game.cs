@@ -7,41 +7,34 @@
 // @lc code=start
 public class Solution {
     public int CalPoints(string[] operations) {
-        var records = new List<int>();
-        int sum = 0;
+        var stack = new Stack<int>();
 
-        for(int i = 0; i < operations.Length; i++) {
-            int lastRecord = records.Count - 1;
-
-            if(operations[i] == "C") {
-                if(lastRecord >= 0) {
-                    sum -= records.ElementAt(lastRecord);
-                    records.RemoveAt(lastRecord);
-                }
+        foreach(string op in operations) {
+            if(op == "C") {
+                stack.Pop();
             }
-            else if (int.TryParse(operations[i], out int rec)) {
-                records.Add(rec);
-                sum += rec;
+            else if (op == "D") {
+                stack.Push(stack.Peek() * 2);
             }
-            else if (operations[i] == "D") {
-                records.Add(records[lastRecord] * 2);
-                sum += (records[lastRecord] * 2);
+            else if (op == "+") {
+                int num2 = stack.Pop();
+                int num1 = stack.Peek();
+                
+                stack.Push(num2);
+                stack.Push(num1 + num2);
             }
-            else if (operations[i] == "+") {
-                if (lastRecord == 0) {
-                    records.Add(records[lastRecord]);
-                    sum += records[lastRecord];
-                }
-                else 
-                {
-                    var lastTwoSum = records[lastRecord] + records[lastRecord -1];
-                    records.Add(lastTwoSum);
-                    sum += lastTwoSum;
-                }
+            else {
+                stack.Push(Int32.Parse(op));
             }
         }
 
-        return sum;
+        int result = 0;
+        
+        while(stack.Count > 0) {
+            result += stack.Pop();
+        }
+
+        return result;
     }
 }
 // @lc code=end
