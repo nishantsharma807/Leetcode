@@ -7,9 +7,9 @@
 // @lc code=start
 public class Solution {
     public void Rotate(int[][] matrix) {
-        for(int i = 0; i < matrix.Length; i++)
+        for(int i = 0; i < matrix.Length - 1; i++)
         {
-            for(int j = i; j < matrix.Length; j++)
+            for(int j = i + 1; j < matrix.Length; j++)
             {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];

@@ -7,19 +7,20 @@
 // @lc code=start
 public class Solution {
     public int SubarraySum(int[] nums, int k) {
-        int result = 0, sum = 0;
+        int result = 0, prefixSum = 0;
         var map = new Dictionary<int, int>();
         map.Add(0, 1);
-        
-        for(int i = 0; i < nums.Length; i++) {
-            sum += nums[i];
 
-            if(map.ContainsKey(sum - k)) {
-                result += map[sum - k];
+        for(int i = 0; i < nums.Length; i++) {
+            prefixSum += nums[i];
+            var diff = prefixSum - k;
+
+            if(map.ContainsKey(diff)) {
+                result += map[diff];
             }
 
-            if(map.ContainsKey(sum)) map[sum] += 1;
-            else map.Add(sum, 1);
+            if(map.ContainsKey(prefixSum)) map[prefixSum] += 1;
+            else map.Add(prefixSum, 1);
         }
 
         return result;
