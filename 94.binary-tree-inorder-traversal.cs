@@ -22,12 +22,30 @@ public class Solution {
     public IList<int> InorderTraversal(TreeNode root) {
         //Inorder -> Left, Root, Right
         var result = new List<int>();
+        if(root == null) return result;
 
-        Traversal(root, result);
+        var stack = new Stack<TreeNode>();
+        var node = root;
+
+        while(node != null || stack.Count > 0) {            
+            if(node != null) {
+                stack.Push(node);
+                node = node.left;
+            }
+            else {
+                node = stack.Pop();
+                result.Add(node.val);
+                node = node.right;
+            }
+        }
+
+        // Recursive
+        // Traversal(root, result);
 
         return result;
     }
 
+    // Recursive
     public void Traversal(TreeNode node, List<int> result) {
         if(node == null) return;
 
