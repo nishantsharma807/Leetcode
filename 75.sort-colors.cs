@@ -20,7 +20,7 @@ public class Solution {
                 low++;
             }
             else {
-                 var temp = nums[high];
+                var temp = nums[high];
                 nums[high] = nums[mid];
                 nums[mid] = temp;
                 high--;
